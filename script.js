@@ -9,7 +9,7 @@ let snake = [5, 4, 3, 2, 1, 0];
 let snakeDirection = 1;
 let apple;
 let score = 0;
-let timeInterval = 600;
+let timeInterval = 500;
 let speed = 0.95;
 let moveTimer;
 
