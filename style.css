@@ -43,7 +43,7 @@ html {
   grid-area: title;
   font-size: 4rem;
   letter-spacing: 1px;
-  margin-bottom: .4em;
+  margin-bottom: 0.4em;
   justify-self: center;
   color: var(--text);
 }
@@ -58,6 +58,7 @@ html {
 }
 
 .btn {
+  font-family: "Montserrat", sans-serif;
   grid-area: button;
   justify-self: start;
   align-self: center;
@@ -145,14 +146,14 @@ html {
 
 .slide {
   position: absolute;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   background-color: var(--text);
-  top: 0;
+  bottom: 0;
   transition: transform 0.4s;
 }
 
 .switch:checked + .slide {
-  transform: translateX(2rem);
+  transform: translateX(2.5rem);
 }
