@@ -1,0 +1,158 @@
+:root {
+  --text: #272a30;
+  --button: #272a30;
+  --bg: #fafafa;
+  --grid: #fefefe;
+  --snake: #2f5831;
+  --apple: #ac2116;
+  --shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+  transition-duration: 500ms;
+  transition-property: all;
+}
+:root.dark-mode {
+  --text: #fefefe;
+  --button: #272a30;
+  --bg: #272a30;
+  --grid: #32363e;
+  --snake: #97ab98;
+  --apple: #c4635b;
+  --shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.45),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.main-title,
+.status,
+.btn,
+.container {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.main-title {
+  grid-area: title;
+  font-size: 4rem;
+  letter-spacing: 1px;
+  margin-bottom: .4em;
+  justify-self: center;
+  color: var(--text);
+}
+
+.status {
+  grid-area: score;
+  justify-self: end;
+  align-self: center;
+  font-size: 1.8rem;
+  margin-right: 1em;
+  color: var(--text);
+}
+
+.btn {
+  grid-area: button;
+  justify-self: start;
+  align-self: center;
+  padding: 0.5rem 1rem;
+  margin-left: 1em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--button);
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "title title"
+    "game game"
+    "score button"
+    "toggle toggle";
+  place-content: center;
+  background-color: var(--bg);
+}
+
+.grid {
+  grid-area: game;
+  justify-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  background-color: var(--grid);
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+  margin-bottom: 2em;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+}
+
+.snake {
+  background-color: var(--snake);
+}
+
+.apple {
+  background-color: var(--apple);
+  border-radius: 50%;
+  position: relative;
+}
+
+.apple::before {
+  content: "";
+  background-color: green;
+  width: 12px;
+  height: 8px;
+  position: absolute;
+  right: -1px;
+  top: -8px;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.toggle-wrap {
+  position: relative;
+  margin-top: 1em;
+  grid-area: toggle;
+  justify-self: center;
+  border-bottom: var(--text) 2px solid;
+  width: 4rem;
+  height: 2rem;
+}
+
+.switch {
+  opacity: 0;
+}
+
+.slide {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--text);
+  top: 0;
+  transition: transform 0.4s;
+}
+
+.switch:checked + .slide {
+  transform: translateX(2rem);
+}
