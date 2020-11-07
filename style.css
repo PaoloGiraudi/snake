@@ -27,6 +27,7 @@
 }
 
 html {
+  overflow: hidden;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -156,4 +157,82 @@ html {
 
 .switch:checked + .slide {
   transform: translateX(2.5rem);
+}
+
+.pad {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    height: 100vh;
+    grid-template-rows: 1fr 1fr 1fr 4fr 2fr;
+    grid-template-areas:
+      "toggle toggle"
+      "title title"
+      "score button"
+      "game game"
+      "pad pad";
+  }
+
+  .grid {
+    width: 300px;
+    height: 300px;
+  }
+  .square {
+    width: 15px;
+    height: 15px;
+  }
+  .main-title {
+    font-size: 2rem;
+    margin: 0;
+    align-self: center;
+  }
+
+  .status {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .toggle-wrap {
+    justify-self: right;
+    margin-right: 2rem;
+  }
+
+  .pad {
+    display: grid;
+    gap: .5rem;
+    grid-template-areas:
+      "left up right"
+      "left down right";
+    grid-area: pad;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .pad-button {
+    width: 6rem;
+    height: 4rem;
+    color: var(--button);
+    box-shadow: var(--shadow);
+  }
+
+  .pad-left {
+    grid-area: left;
+    align-self: center;
+  }
+  .pad-up {
+    grid-area: up;
+  }
+  .pad-right {
+    grid-area: right;
+    align-self: center;
+  }
+  .pad-down {
+    grid-area: down;
+  }
 }

@@ -59,7 +59,7 @@ function moveSnake() {
     (snake[0] - gridWidth < 0 && snakeDirection === -gridWidth) ||
     squares[snake[0] + snakeDirection].classList.contains("snake")
   ) {
-    scoreSpan.textContent = "You Lose";
+    scoreSpan.textContent = "☠️";
     return clearInterval(moveTimer);
   }
 
