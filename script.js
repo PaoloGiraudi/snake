@@ -3,6 +3,7 @@ const startStopBtn = document.querySelector(".btn");
 const scoreSpan = document.querySelector(".score");
 const root = document.querySelector(":root");
 const toggle = document.querySelector(".switch");
+const padButtons = document.querySelectorAll(".pad-button");
 const gridWidth = 20;
 const squares = [];
 let snake = [5, 4, 3, 2, 1, 0];
@@ -91,15 +92,19 @@ function generateApple() {
 generateApple();
 
 function controlSnake(e) {
-  if (e.keyCode === 37) {
+  if (e.keyCode === 37 || e.target.classList.contains("pad-left")) {
     snakeDirection = -1;
-  } else if (e.keyCode === 38) {
+  } else if (e.keyCode === 38 || e.target.classList.contains("pad-up")) {
     snakeDirection = -gridWidth;
-  } else if (e.keyCode === 39) {
+  } else if (e.keyCode === 39 || e.target.classList.contains("pad-right")) {
     snakeDirection = 1;
-  } else if (e.keyCode === 40) {
+  } else if (e.keyCode === 40 || e.target.classList.contains("pad-down")) {
     snakeDirection = +gridWidth;
   }
+}
+
+function controlEx(e) {
+  console.log(e);
 }
 
 function switchTheme() {
@@ -109,3 +114,7 @@ function switchTheme() {
 document.addEventListener("keydown", controlSnake);
 startStopBtn.addEventListener("click", startGame);
 toggle.addEventListener("click", switchTheme);
+
+padButtons.forEach((btn) => {
+  btn.addEventListener("click", controlSnake);
+});

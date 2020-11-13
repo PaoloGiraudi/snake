@@ -178,6 +178,7 @@ html {
   .grid {
     width: 300px;
     height: 300px;
+    margin-bottom: 0;
   }
   .square {
     width: 15px;
@@ -205,7 +206,7 @@ html {
 
   .pad {
     display: grid;
-    gap: .5rem;
+    gap: 0.5rem;
     grid-template-areas:
       "left up right"
       "left down right";
@@ -217,8 +218,15 @@ html {
   .pad-button {
     width: 6rem;
     height: 4rem;
-    color: var(--button);
-    box-shadow: var(--shadow);
+    background-color: var(--grid);
+    box-shadow: 0.1em 0.1em 0.5em rgba(0, 0, 0, 0.15),
+      0.05em 0.05em 0.2em rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .pad-button:active {
+    opacity: 0.5;
   }
 
   .pad-left {
@@ -234,5 +242,32 @@ html {
   }
   .pad-down {
     grid-area: down;
+  }
+
+  .arrow {
+    border: solid var(--text);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  .arrow-right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .arrow-left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+  .arrow-up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+
+  .arrow-down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
   }
 }
