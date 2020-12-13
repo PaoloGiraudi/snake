@@ -11,7 +11,7 @@ let snakeDirection = 1;
 let apple;
 let score = 0;
 let timeInterval = 500;
-let speed = 0.85;
+let speed = 0.95;
 let moveTimer;
 
 function createGrid() {
@@ -44,10 +44,12 @@ function startGame() {
   snake = [5, 4, 3, 2, 1, 0];
   snakeDirection = 1;
   score = 0;
+  timeInterval = 500;
   scoreSpan.textContent = score;
   drawSnake();
   generateApple();
   moveTimer = setInterval(moveSnake, timeInterval);
+  console.log(timeInterval);
 }
 
 function moveSnake() {
