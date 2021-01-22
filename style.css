@@ -33,7 +33,7 @@ html {
   font-weight: 700;
 }
 
-p {
+.info-links {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -41,7 +41,7 @@ p {
   color: var(--text);
 }
 
-a {
+.info-links a {
   color: var(--snake);
 }
 
